@@ -1,0 +1,31 @@
+{
+  "name": "api-website",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build":"babel src --out-dir build",
+    "dev": "babel-node src/index.js",
+    "start": "node build/index.js"
+  },
+  "keywords": [],
+  "author": "Xavier Navarrete",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.5.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.24.8",
+    "@babel/core": "^7.25.2",
+    "@babel/node": "^7.25.0",
+    "@babel/preset-env": "^7.25.3",
+    "nodemon": "^3.1.4"
+  }
+}
