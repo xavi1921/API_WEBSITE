@@ -7,7 +7,10 @@ import pkg from '../package.json'
 
 const app=express()
 
-app.set('pkg',pkg)
+import productRoutes from './routes/products.routes'
+
+app.set('pkg',pkg);
+app.use(express.json());
 app.use(morgan('dev'));
 
 app.get('/',(req,res)=>{
@@ -17,5 +20,7 @@ app.get('/',(req,res)=>{
         version:app.get('pkg').version
     })
 })
+
+app.use('/products',productRoutes)
 
 export default app;
