@@ -15,14 +15,20 @@ export const getProducts =async (req,res)=>{
     res.json(products)
 }
 
-export const getProductsId =(req,res)=>{
-
+export const getProductsId = async (req,res)=>{
+    const product= await Products.findById(req.params.productsId);
+    res.status(200).json(product)
 }
 
-export const updateProductsById =(req,res)=>{
-
+export const updateProductsById = async (req,res)=>{
+    const updateProduct=await Products.findByIdAndUpdate(req.params.productsId, req.body,{
+        new:true
+    })
+    res.status(200).json(updateProduct)
 }
 
-export const deleteProductsById =(req,res)=>{
-
+export const deleteProductsById = async (req,res)=>{
+    const {productsId}=req.params;
+    const deleteProduct=await Products.findByIdAndDelete(productsId)
+    res.status(204).json()
 }

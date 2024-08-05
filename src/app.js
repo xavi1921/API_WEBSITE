@@ -8,6 +8,7 @@ import pkg from '../package.json'
 const app=express()
 
 import productRoutes from './routes/products.routes'
+import authRoutes from './routes/auth.routes'
 
 app.set('pkg',pkg);
 app.use(express.json());
@@ -21,6 +22,7 @@ app.get('/',(req,res)=>{
     })
 })
 
-app.use('/products',productRoutes)
+app.use('/api/products',productRoutes)
+app.use('/api/auth',authRoutes)
 
 export default app;
