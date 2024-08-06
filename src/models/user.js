@@ -1,10 +1,6 @@
 import {Schema, model} from "mongoose";
 
 const userSchema= new Schema({
-    nombres:{
-        type:String,
-        require:true
-    },
     apellidos:{
         type:String,
         require:true
@@ -29,5 +25,7 @@ const userSchema= new Schema({
     timestamps:true,
     versionKey:false
 })
+
+userSchema.statics.encryptPassword=async 
 
 export default userSchema;
