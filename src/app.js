@@ -2,10 +2,10 @@ import express from 'express'
 import { version } from 'mongoose';
 import morgan from 'morgan'
 import pkg from '../package.json'
-
-
+import {createRoles} from './libs/initialSetup'
 
 const app=express()
+createRoles();
 
 import productRoutes from './routes/products.routes'
 import authRoutes from './routes/auth.routes'
