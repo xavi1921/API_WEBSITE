@@ -40,8 +40,13 @@ export const signin = async (req,res)=>{
     if(!userFound) return res.status(400).json({message:"User not found"})
     
     //valida la contraseña
-    await user.comparePassword(req.body.password)
-    console.log(userFound)
+    const matchPassword = await user.comparePassword(req.body.password,userFound.password)
 
-    res.json({token:''})
+    if(!matchPassword) return res.status(401).json({token:null,message:'Invalid password'})
+
+    const token = jwt.sign({id:userFound._id}, config.SECRET,{
+        expiresIn:86400
+    })
+    
+    res.json({token})
 }
