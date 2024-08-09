@@ -2,7 +2,6 @@ import Role from '../models/rol'
 
 export const createRoles=async()=>{
 
-    console.log("cero polito");
     try {
         const count=await Role.estimatedDocumentCount()
         if(count>0) return;

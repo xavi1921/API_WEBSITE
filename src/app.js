@@ -9,6 +9,7 @@ createRoles();
 
 import productRoutes from './routes/products.routes'
 import authRoutes from './routes/auth.routes'
+import usersRouts from './routes/user.routes'
 
 app.set('pkg',pkg);
 app.use(express.json());
@@ -24,5 +25,6 @@ app.get('/',(req,res)=>{
 
 app.use('/api/products',productRoutes)
 app.use('/api/auth',authRoutes)
+app.use('/api/user',usersRouts)
 
 export default app;
